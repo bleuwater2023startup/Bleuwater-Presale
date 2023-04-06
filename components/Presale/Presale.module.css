@@ -1,0 +1,75 @@
+.container {
+  width: 100%;
+  max-width: 42em;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2em;
+  margin-top: 4em;
+  padding: 0 2em;
+  text-align: center;
+}
+
+.imageContainer {
+  width: 100%;
+  max-width: 16em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageContainer img {
+  width: 100%;
+}
+
+.title {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 49px;
+  /* or 247% */
+
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.44px;
+
+  color: #323256;
+}
+
+.description {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 32px;
+  /* or 200% */
+
+  text-align: center;
+
+  color: #2C3857;
+}
+
+.info {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  color: #43436A;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.joinBtn {
+  width: 9em;
+}
+
+@media screen and (max-width: 540px) {
+  .container {
+    padding: 0 1em;
+  }
+
+  .imageContainer {
+    max-width: 12em;
+  }
+}

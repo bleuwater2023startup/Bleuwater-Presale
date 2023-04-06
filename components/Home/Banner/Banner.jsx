@@ -6,9 +6,11 @@ import Button from "../../Button/Button";
 import Lottie from "react-lottie";
 import * as animationData from "../../../assets/banner.json";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { useRouter } from "next/router";
 
 const Banner = () => {
   const matches = useMediaQuery("(max-width:768px)");
+  const router = useRouter();
 
   const defaultOptions = {
     loop: true,
@@ -19,20 +21,33 @@ const Banner = () => {
     },
   };
 
+  const handleJoin = () => {
+    router.push("/presale-join");
+  };
+
   return (
     <div className={classes.container}>
       <div className={classes.wrapper}>
-        <Image className={classes.bg} src={matches ? BannerBgMobile : BannerBg} alt="" />
+        <Image
+          className={classes.bg}
+          src={matches ? BannerBgMobile : BannerBg}
+          alt=""
+        />
         <div className={classes.textSection}>
-          <div className={classes.mainText}>The wave is coming, be in control!</div>
-          <div className={classes.subText1}>
-            We will help you launch your NFT ecosystem with the guarantee of protected NFTs, full
-            ownership of your smart contracts and royalty payout on secondary sales.
+          <div className={classes.mainText}>
+            The wave is coming, be in control!
           </div>
-          <div className={classes.subText2}>{"You’re early, buy NFT to join Waitlist!"}</div>
-          <div className={classes.button}>
+          <div className={classes.subText1}>
+            We will help you launch your NFT ecosystem with the guarantee of
+            protected NFTs, full ownership of your smart contracts and royalty
+            payout on secondary sales.
+          </div>
+          <div className={classes.subText2}>
+            {"You’re early, grab the Presale!"}
+          </div>
+          <div onClick={handleJoin} className={classes.button}>
             <Button height={6} light>
-              Join waitlist
+              Join Presale
             </Button>
           </div>
         </div>
