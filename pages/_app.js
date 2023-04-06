@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <StateContextProvider>
-        <div style={{ minHeight: "100vh", marginBottom: "8em" }}>
+        <div style={{ minHeight: "100vh" }}>
           <Header />
           <ErrorBoundary>
             <Component {...pageProps} />

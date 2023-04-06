@@ -8,7 +8,9 @@ const Features = () => {
   return (
     <div className={classes.container}>
       <FadeAnimation>
-        <div className={classes.mainText}>All your NFT project needs in one place</div>
+        <div className={classes.mainText}>
+          All your NFT project needs in one place
+        </div>
         <div className={classes.subText}>
           Features that helps you sell, protect and get royalties paid
         </div>
@@ -21,9 +23,11 @@ const Features = () => {
             ))}
           </div>
           <div className={classes.button}>
-            <Button accent fill outline_dark height={5}>
-              Get in touch
-            </Button>
+            <a href="mailto:bleu5water@gmail.com">
+              <Button accent fill outline_dark height={5}>
+                Get in touch
+              </Button>
+            </a>
           </div>
         </>
       </FadeAnimation>

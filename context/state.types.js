@@ -18,4 +18,5 @@ export const stateActionTypes = {
 export const modalTypes = {
   CONNECT_WALLET: "CONNECT_WALLET",
   SWITCH_NETWORKS: "SWITCH_NETWORKS",
+  FEEDBACK: "FEEDBACK",
 };

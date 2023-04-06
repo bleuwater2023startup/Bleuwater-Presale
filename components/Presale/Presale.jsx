@@ -1,18 +1,36 @@
 import classes from "./Presale.module.css";
 import presaleImg from "../../assets/presale.png";
 import Button from "../Button/Button";
-import { handleTransfer } from "../../_SCRIPTS.JS";
 import { useContext } from "react";
 import { StateContext } from "../../context/state.context";
 import { useRouter } from "next/router";
+import { handleTransferMatic } from "../../_SCRIPTS.JS";
+import { handleTransferEthereum } from "../../_SCRIPTS.JS";
+import { setModal } from "../../context/state.actions";
+import { modalTypes } from "../../context/state.types";
 
 const Presale = () => {
-  const { dispatch, walletProvider } = useContext(StateContext);
+  const { dispatch, walletProvider, account } = useContext(StateContext);
   const router = useRouter();
 
-  const _handleTransfer = async () => {
-    await handleTransfer({ dispatch, walletProvider });
-    router.push("/");
+  const handleConnectModal = () => {
+    dispatch(setModal(modalTypes.CONNECT_WALLET));
+  };
+
+  const _handleTransferMatic = async () => {
+    if (!account) return handleConnectModal();
+    const res = await handleTransferMatic({ dispatch, walletProvider });
+    if (res) {
+      router.push("/");
+    }
+  };
+
+  const _handleTransferEthereum = async () => {
+    if (!account) return handleConnectModal();
+    const res = await handleTransferEthereum({ dispatch, walletProvider });
+    if (res) {
+      router.push("/");
+    }
   };
 
   return (
@@ -28,10 +46,18 @@ const Presale = () => {
       <div className={classes.info}>
         You need to have 0.1 ETH + gas in your wallet to join Presale
       </div>
-      <div onClick={_handleTransfer} className={classes.joinBtn}>
-        <Button accent dark>
-          Join Presale
-        </Button>
+      <div className={classes.btnContainer}>
+        <div onClick={_handleTransferEthereum} className={classes.joinBtn}>
+          <Button outline_dark dark>
+            Join with ETH
+          </Button>
+        </div>
+
+        <div onClick={_handleTransferMatic} className={classes.joinBtn}>
+          <Button outline_dark dark>
+            Join with Matic
+          </Button>
+        </div>
       </div>
     </div>
   );
