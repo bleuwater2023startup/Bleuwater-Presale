@@ -44,7 +44,8 @@ const Presale = () => {
         with Zero platform fees to Ethereum and Polygon mainnet{" "}
       </div>
       <div className={classes.info}>
-        You need to have 0.1 ETH + gas in your wallet to join Presale
+        You need to have 0.19 ETH + gas or 313 MATIC + gas in your wallet to
+        join Presale
       </div>
       <div className={classes.btnContainer}>
         <div onClick={_handleTransferEthereum} className={classes.joinBtn}>
