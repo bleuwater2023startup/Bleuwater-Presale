@@ -17,7 +17,13 @@ import {
   orderBy,
   limit,
 } from "firebase/firestore";
-import { getStorage, ref, uploadBytes, getDownloadURL, deleteObject } from "firebase/storage";
+import {
+  getStorage,
+  ref,
+  uploadBytes,
+  getDownloadURL,
+  deleteObject,
+} from "firebase/storage";
 import { getFile } from "../utils";
 // import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -25,29 +31,15 @@ import { getFile } from "../utils";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-let firebaseConfig = null;
-
-if (process.env.dev_mode === "mainnet") {
-  firebaseConfig = {
-    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-    authDomain: "bleuwater-b535f.firebaseapp.com",
-    projectId: "bleuwater-b535f",
-    storageBucket: "bleuwater-b535f.appspot.com",
-    messagingSenderId: "612325301415",
-    appId: "1:612325301415:web:12bd739b5266a3fa82cf82",
-    measurementId: "G-KVYNJ5XLL0",
-  };
-} else {
-  firebaseConfig = {
-    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY_TESTNET,
-    authDomain: "bleuwater-testnet.firebaseapp.com",
-    projectId: "bleuwater-testnet",
-    storageBucket: "bleuwater-testnet.appspot.com",
-    messagingSenderId: "333317858361",
-    appId: "1:333317858361:web:fafed4b757a0a844e699e8",
-    measurementId: "G-74KHXPDXMX",
-  };
-}
+const firebaseConfig = {
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: "bleuwater-b535f.firebaseapp.com",
+  projectId: "bleuwater-b535f",
+  storageBucket: "bleuwater-b535f.appspot.com",
+  messagingSenderId: "612325301415",
+  appId: "1:612325301415:web:12bd739b5266a3fa82cf82",
+  measurementId: "G-KVYNJ5XLL0",
+};
 
 // Initialize Firebase
 let app = initializeApp(firebaseConfig);
@@ -182,7 +174,9 @@ export const uploadImage = async ({ account, name, file }) => {
 
 export const getImage = async ({ account, name }) => {
   try {
-    const url = await getDownloadURL(ref(storage, `users/${account}/${name}.png`));
+    const url = await getDownloadURL(
+      ref(storage, `users/${account}/${name}.png`)
+    );
     return await getFile(url);
   } catch (error) {
     console.log(error);
@@ -230,7 +224,9 @@ export const uploadCollectionImage = async ({ id, name, file }) => {
 
 export const getCollectionImage = async ({ id, name }) => {
   try {
-    const url = await getDownloadURL(ref(storage, `collections/${id}/${name}.png`));
+    const url = await getDownloadURL(
+      ref(storage, `collections/${id}/${name}.png`)
+    );
     return await getFile(url);
   } catch (error) {
     console.log(error);
@@ -246,7 +242,10 @@ export const deleteCollectionImage = async ({ id, name }) => {
 
 export const sendNotification = async ({ account, notification }) => {
   try {
-    await addDoc(collection(db, "notifications", account, "notification"), notification);
+    await addDoc(
+      collection(db, "notifications", account, "notification"),
+      notification
+    );
     console.log("Saved!");
   } catch (error) {
     console.log(error);
@@ -274,7 +273,9 @@ export const getNotifications = async ({ account, setNotes }) => {
 };
 
 export const deleteNotification = async ({ account, nId }) => {
-  const docSnap = await getDoc(doc(db, "notifications", account, "notification", nId));
+  const docSnap = await getDoc(
+    doc(db, "notifications", account, "notification", nId)
+  );
   deleteDoc(docSnap.ref);
 };
 
@@ -291,7 +292,10 @@ export const deleteAllNotifications = async ({ account }) => {
 export const sendMessageRequest = async ({ admin, user, message }) => {
   try {
     await addDoc(collection(db, "messages", admin, "message"), message);
-    await addDoc(collection(db, "messages", `${user}-${admin}`, "message"), message);
+    await addDoc(
+      collection(db, "messages", `${user}-${admin}`, "message"),
+      message
+    );
     console.log("Saved!");
   } catch (error) {
     console.log(error);
@@ -301,7 +305,10 @@ export const sendMessageRequest = async ({ admin, user, message }) => {
 
 export const sendMessage = async ({ admin, user, message }) => {
   try {
-    await addDoc(collection(db, "messages", `${user}-${admin}`, "message"), message);
+    await addDoc(
+      collection(db, "messages", `${user}-${admin}`, "message"),
+      message
+    );
     console.log("Saved!");
   } catch (error) {
     console.log(error);
