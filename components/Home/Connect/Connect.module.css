@@ -1,0 +1,184 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 6em 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.innerContainer {
+  width: 100%;
+  max-width: 1440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4em;
+  padding: 6em;
+  padding-left: 4em;
+  background: var(--card-bg);
+  border-radius: 1em;
+  background: linear-gradient(180deg, #36F3FF 0%, #369FFF 100%);
+  border-radius: 34px;
+  position: relative;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1em;
+  flex: 1;
+}
+
+.btnContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  z-index: 1;
+}
+
+.btn1,
+.btn2 {
+  width: 14em;
+  height: 6em;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 1em;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 300ms;
+}
+
+.btn1:hover .icon {
+  transform: translate(4px, -4px);
+}
+
+.btn2:hover .icon {
+  transform: translate(4px, -4px);
+}
+
+.btn1 {
+  background: var(--bg-light);
+}
+
+.btn1 .icon {
+  stroke: #09266E
+}
+
+.btn2 {
+  border: 1px solid var(--bg-light);
+}
+
+.btn2 .icon {
+  stroke: #ffffff
+}
+
+.mainText {
+  font-weight: 700;
+  font-size: 2.6rem;
+  line-height: 50px;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+
+.subText {
+  font-weight: 600;
+  font-size: 0.75rem;
+  line-height: 48px;
+  letter-spacing: 0.285em;
+  text-transform: uppercase;
+}
+
+.lunchIcon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.icon {
+  margin-bottom: 6px;
+  transition: all 300ms;
+}
+
+@media screen and (max-width: 1440px) {
+
+  .btn1,
+  .btn2 {
+    width: 12em;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .innerContainer {
+    gap: 2em;
+    padding: 4em;
+    padding-bottom: 6em;
+    padding-top: 6em;
+  }
+
+  .btn1,
+  .btn2 {
+    width: 10em;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .mainText {
+    font-size: 2rem;
+  }
+
+  .subText {
+    font-size: 0.7rem;
+    line-height: 36px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .innerContainer {
+    padding: 4em;
+    padding-bottom: 6em;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .lunchIcon {
+    display: none;
+  }
+
+  .btnContainer {
+    width: 100%;
+  }
+
+  .btn1,
+  .btn2 {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .innerContainer {
+    padding: 2em;
+    padding-bottom: 4em;
+  }
+
+  .mainText {
+    font-size: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .mainText {
+    font-size: 1.2rem;
+  }
+
+}

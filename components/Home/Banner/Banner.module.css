@@ -1,0 +1,167 @@
+.container {
+  width: 100%;
+  padding: 2em 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: var(--color-light);
+  margin-bottom: calc(6 * 16px);
+}
+
+.lottie {
+  width: 100%;
+  max-width: 48vw;
+  margin-top: 5em;
+  margin-right: 5em;
+  z-index: 1;
+  position: absolute;
+  right: 0;
+}
+
+.wrapper {
+  width: 100%;
+  height: calc(100vh - 8em);
+  background: linear-gradient(180deg, #36F3FF 0%, #369FFF 100%);
+  border-radius: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+  padding-left: 8vw;
+  padding-right: 4em;
+}
+
+.bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.textSection {
+  z-index: 2;
+  width: 100%;
+  max-width: 40em;
+  color: var(--color-dark);
+}
+
+.mainText {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 4.2em;
+  line-height: 89px;
+  margin-bottom: 0.2em;
+}
+
+.subText1 {
+  margin-bottom: 2em;
+}
+
+.subText2 {
+  margin-bottom: 1em;
+}
+
+.subText1,
+.subText2 {
+  color: #0F1D40;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 31px;
+}
+
+.button {
+  width: 9em;
+}
+
+@media screen and (max-width: 1280px) {
+  .wrapper {
+    height: calc(100vh - 10em);
+    padding-left: 4em;
+    padding-right: 2em;
+  }
+
+  .lottie {
+    margin-top: 4em;
+    margin-right: 4em;
+  }
+
+  .textSection {
+    max-width: 32em;
+  }
+
+  .mainText {
+    line-height: 69px;
+    font-size: 3.2rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .wrapper {
+    padding: 2em;
+  }
+
+  .lottie {
+    margin-right: 2em;
+    margin-top: 5em;
+  }
+
+  .textSection {
+    max-width: 28em;
+  }
+
+  .mainText {
+    line-height: 60px;
+    font-size: 2.8rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    height: auto;
+    flex-direction: column;
+    gap: 4em;
+    padding: 1em;
+    padding-top: 4em;
+    border-radius: 1em;
+  }
+
+  .lottie {
+    max-width: 100%;
+    margin-right: 0;
+    margin-top: 0;
+    position: static;
+  }
+
+  .subText1,
+  .subText2 {
+    color: #0F1D40;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 0.8rem;
+    line-height: 24px;
+  }
+
+  .textSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .textSection * {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .mainText {
+    font-size: 1.1rem;
+  }
+}

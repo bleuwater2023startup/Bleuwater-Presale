@@ -1,0 +1,116 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.mainText {
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin-bottom: 2em;
+}
+
+.carouselContainer {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4em;
+}
+
+.blockchains {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4em;
+  padding: 2em 0;
+}
+
+.blockchains {
+  animation: slide 20s linear infinite;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0em);
+  }
+
+  100% {
+    transform: translateX(calc(-100% - 4em));
+  }
+}
+
+.blockchain {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
+}
+
+.name {
+  font-weight: 600;
+}
+
+.icon {
+  width: 2em;
+  height: 2em;
+}
+
+.leftShadow,
+.rightShadow {
+  position: absolute;
+  width: 12em;
+  height: 100%;
+  z-index: 2;
+}
+
+.leftShadow {
+  left: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.442), white);
+}
+
+.rightShadow {
+  right: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.442), white);
+}
+
+@media screen and (max-width: 768px) {
+
+  .leftShadow,
+  .rightShadow {
+    position: absolute;
+    width: 6em;
+    height: 100%;
+    z-index: 1;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .blockchains {
+    animation: slide 10s linear infinite;
+  }
+
+  .leftShadow,
+  .rightShadow {
+    position: absolute;
+    width: 1em;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .mainText {
+    font-size: 1rem;
+  }
+}

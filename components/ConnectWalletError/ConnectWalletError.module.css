@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+  min-height: calc(100vh - 8em);
+  padding: 1em;
+}
+
+.walletIcon {
+  padding: 1em;
+  width: 85px;
+  height: 76.01px;
+  left: 713px;
+  top: 348px;
+  background: var(--card-bg);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heading {
+  text-align: center;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 24px;
+}
+
+.description {
+  width: 100%;
+  max-width: 32em;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 32px;
+  text-align: center;
+}
+
+.button {
+  width: 12em;
+}

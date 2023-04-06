@@ -1,0 +1,100 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 4em 0;
+}
+
+.mainText {
+  font-weight: 500;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.subText {
+  font-weight: 700;
+  font-size: 2rem;
+  max-width: 20em;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.listWrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 2em;
+}
+
+.listWrapper:hover .leftCtrl,
+.listWrapper:hover .rightCtrl {
+  visibility: visible;
+}
+
+.listContainer {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1em;
+  transition: all 650ms;
+}
+
+.leftCtrl,
+.rightCtrl {
+  position: absolute;
+  background: transparent;
+  white-space: nowrap;
+  z-index: 1;
+  cursor: pointer;
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+  display: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  visibility: hidden;
+  background: rgba(255, 255, 255, 0.79);
+}
+
+.leftCtrl {
+  left: 0;
+}
+
+.rightCtrl {
+  right: 0;
+}
+
+.leftCtrl .icon {
+  transform: rotate(180deg);
+}
+
+.rightCtrl.active,
+.leftCtrl.active {
+  display: flex;
+}
+
+@media screen and (max-width: 480px) {
+
+  .leftCtrl,
+  .rightCtrl {
+    visibility: visible;
+  }
+
+  .mainText {
+    font-size: 0.875rem;
+  }
+
+  .subText {
+    font-size: 1rem;
+  }
+}
