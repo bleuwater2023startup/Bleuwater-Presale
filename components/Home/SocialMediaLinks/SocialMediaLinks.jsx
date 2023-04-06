@@ -26,7 +26,7 @@ const SocialMediaLinks = () => {
           <a
             href="https://www.instagram.com/bleuwaterstudio/"
             target="_blank"
-            rel="noreferre nooopener"
+            rel="noreferrer nooopener"
             className={classes.item}
           >
             <Instagram />
@@ -35,7 +35,7 @@ const SocialMediaLinks = () => {
           <a
             href="https://twitter.com/BleuWaterSol"
             target="_blank"
-            rel="noreferre nooopener"
+            rel="noreferrer nooopener"
             className={classes.item}
           >
             <Twitter />
