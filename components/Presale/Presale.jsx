@@ -8,6 +8,7 @@ import { handleTransferMatic } from "../../_SCRIPTS.JS";
 import { handleTransferEthereum } from "../../_SCRIPTS.JS";
 import { setModal } from "../../context/state.actions";
 import { modalTypes } from "../../context/state.types";
+import InfoIcon from "../../assets/icon-info.svg";
 
 const Presale = () => {
   const { dispatch, walletProvider, account } = useContext(StateContext);
@@ -44,8 +45,11 @@ const Presale = () => {
         with Zero platform fees to Ethereum and Polygon mainnet{" "}
       </div>
       <div className={classes.info}>
-        You need to have 0.19 ETH + gas or 313 MATIC + gas in your wallet to
-        join Presale
+        <InfoIcon />
+        <span>
+          You need to have 0.19 ETH + gas or 313 MATIC + gas in your wallet to
+          join Presale
+        </span>
       </div>
       <div className={classes.btnContainer}>
         <div onClick={_handleTransferEthereum} className={classes.joinBtn}>

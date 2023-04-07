@@ -47,13 +47,13 @@
 .textSection {
   z-index: 2;
   width: 100%;
-  max-width: 40em;
+  max-width: 42em;
   color: var(--color-dark);
 }
 
 .mainText {
   font-style: normal;
-  font-weight: 700;
+  font-weight: 900;
   font-size: 4.2em;
   line-height: 89px;
   margin-bottom: 0.2em;
@@ -113,7 +113,7 @@
   }
 
   .textSection {
-    max-width: 28em;
+    max-width: 32em;
   }
 
   .mainText {
@@ -158,10 +158,16 @@
   .textSection * {
     text-align: center;
   }
+
+  .mainText {
+    line-height: 50px;
+    font-size: 2.4rem;
+  }
 }
 
 @media screen and (max-width: 480px) {
   .mainText {
+    line-height: 32px;
     font-size: 1.1rem;
   }
 }
