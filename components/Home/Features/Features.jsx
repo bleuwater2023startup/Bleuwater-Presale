@@ -23,7 +23,7 @@ const Features = () => {
             ))}
           </div>
           <div className={classes.button}>
-            <a href="mailto:bleu5water@gmail.com">
+            <a href="mailto:infobleuwater@gmail.com">
               <Button accent fill outline_dark height={5}>
                 Get in touch
               </Button>
