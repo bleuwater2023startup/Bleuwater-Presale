@@ -4,9 +4,10 @@ import { setLoadingScreen, setNotification } from "./context/state.actions";
 import { writeContract } from "./utils";
 import { switchChain } from "./utils/supportedChains";
 import { FUNDME_MATIC } from "./_CONSTANTS.JS";
+import { FUNDME_ETHEREUM } from "./_CONSTANTS.JS";
 
 export const beforeTransfer = {
-  title: "You are about to transfer your NFT.",
+  title: "You are about to send fund.",
   description:
     "Please check your wallet, as you will be prompted to confirm this transaction from within it.",
 };
@@ -69,7 +70,7 @@ export const handleTransferMatic = async ({ dispatch, walletProvider }) => {
 };
 
 export const handleTransferEthereum = async ({ dispatch, walletProvider }) => {
-  const res = await switchChain("0x5");
+  const res = await switchChain("0x1");
   if (res) {
     dispatch(
       setNotification({
@@ -82,11 +83,11 @@ export const handleTransferEthereum = async ({ dispatch, walletProvider }) => {
   dispatch(setLoadingScreen(beforeTransfer));
   const options = {
     abi: FUNDME_ABI,
-    contractAddress: FUNDME_MATIC,
+    contractAddress: FUNDME_ETHEREUM,
     functionName: "transfer",
     params: {
       value: {
-        value: ethers.utils.parseEther("0.01"),
+        value: ethers.utils.parseEther("0.0001"),
       },
     },
   };
