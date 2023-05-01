@@ -3,10 +3,6 @@
   /* overflow: hidden; */
 }
 
-.wrapper.hold {
-  transform: translateY(0);
-}
-
 .wrapper.slideDown {
   animation: slide-down 650ms forwards;
   opacity: 0;

@@ -6,10 +6,10 @@ export const data = [
   },
   {
     name: "Where can I buy and sell Bleuwater NFTs",
-    description: "You can only buy and trade Bleuwaters NFTs on Bleuwater.com",
+    description: "You can only buy and trade Bleuwater NFTs on Bleuwater.com",
   },
   {
-    name: "What Utility does the Bleuwaters NFT have?",
+    name: "What Utility does the Bleuwater NFT have?",
     description:
       "Holding our NFTs gives you exclusive access to our E-learning classes, Access to our IRL events, a 1hr One-on-one call with the team, and building your own eco system.",
   },
