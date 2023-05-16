@@ -3,8 +3,8 @@ import { FUNDME_ABI } from "./_CONSTANTS.JS";
 import { setLoadingScreen, setNotification } from "./context/state.actions";
 import { writeContract } from "./utils";
 import { switchChain } from "./utils/supportedChains";
-import { FUNDME_MATIC } from "./_CONSTANTS.JS";
 import { FUNDME_ETHEREUM } from "./_CONSTANTS.JS";
+import { FUNDME_POLYGON } from "./_CONSTANTS.JS";
 
 export const beforeTransfer = {
   title: "You are about to send fund.",
@@ -19,7 +19,7 @@ export const onTransfer = {
 };
 
 export const handleTransferMatic = async ({ dispatch, walletProvider }) => {
-  const res = await switchChain("0x13881");
+  const res = await switchChain("0x89");
   if (res) {
     dispatch(
       setNotification({
@@ -32,7 +32,7 @@ export const handleTransferMatic = async ({ dispatch, walletProvider }) => {
   dispatch(setLoadingScreen(beforeTransfer));
   const options = {
     abi: FUNDME_ABI,
-    contractAddress: FUNDME_MATIC,
+    contractAddress: FUNDME_POLYGON,
     functionName: "transfer",
     params: {
       value: {

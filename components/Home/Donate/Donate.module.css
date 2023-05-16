@@ -1,0 +1,175 @@
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 6em 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.title {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 64px;
+  text-align: center;
+  color: #2C3857;
+  margin-bottom: 32px;
+}
+
+.addressBox {
+  /* border: 1px solid red; */
+}
+
+.tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  width: 280px;
+  height: 51px;
+  background: #FFFFFF;
+  border: 0.5px solid #DDDDEB;
+  box-shadow: 5px 10px 39px rgba(93, 134, 194, 0.1);
+  border-radius: 100px;
+  margin: 0 auto;
+  margin-bottom: 32px;
+}
+
+.network {
+  background: #FFFFFF;
+  width: 70px;
+  height: 35px;
+  left: 620px;
+  top: 4810px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.network.active {
+  border: 0.5px solid #0D99FF;
+  box-shadow: 5px 10px 11px rgba(93, 134, 194, 0.17);
+  border-radius: 100px;
+}
+
+.network>div {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 50px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+  color: #0F1D40;
+}
+
+.innerContainer {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 32px;
+  width: 360px;
+  background: #FFFFFF;
+  border: 1px solid #DDDDEB;
+  border-radius: 12px;
+  margin: 0 auto;
+}
+
+.title2 {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 50px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+  color: #0F1D40;
+  margin-bottom: 24px;
+}
+
+.QRCodeContainer {
+  width: 184px;
+  height: 186px;
+  margin-bottom: 24px;
+}
+
+.address {
+  margin-bottom: 24px;
+  word-break: break-all;
+  text-align: center;
+}
+
+.copyBox {
+  width: 173px;
+  height: 36px;
+  background: #FFFFFF;
+  border: 1px solid #0D99FF;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 168%;
+  text-align: center;
+  color: #0F1D40;
+  cursor: pointer;
+  position: relative;
+}
+
+.copyIcon {
+  z-index: 1;
+  margin-right: 4px;
+}
+
+.tag {
+  text-align: center;
+  position: absolute;
+  bottom: calc(2 * 16px);
+  background: var(--tooltip-bg);
+  color: var(--color-light);
+  padding: 0.4em 1em;
+  padding-bottom: 0.6em;
+  border-radius: 0.3em;
+  font-size: 0.8rem;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.tag::before {
+  position: absolute;
+  bottom: 1px;
+  content: "";
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--tooltip-bg) transparent transparent transparent;
+  transform: translateY(100%);
+  z-index: 1;
+}
+
+.copyBox:hover .tag {
+  display: flex;
+}
+
+@media screen and (max-width: 540px) {
+  .title {
+    font-size: 24px;
+  }
+}

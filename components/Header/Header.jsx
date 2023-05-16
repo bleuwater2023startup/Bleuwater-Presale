@@ -33,6 +33,11 @@ const Header = () => {
     setNavOpen(false);
   };
 
+  const handleGoToDonate = () => {
+    const element = document.getElementById("donate");
+    element.scrollIntoView();
+  };
+
   useEffect(() => {
     if (matches) {
       setNavOpen(false);
@@ -44,8 +49,13 @@ const Header = () => {
       <Link href="/">
         <Logo className={classes.logo} />
       </Link>
-      <div className={classes.connect}>
-        <ConnectWallet />
+      <div className={classes.wrapper}>
+        <div onClick={handleGoToDonate} className={classes.donate}>
+          Donate
+        </div>
+        <div className={classes.connect}>
+          <ConnectWallet />
+        </div>
       </div>
     </div>
   );

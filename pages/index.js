@@ -5,10 +5,10 @@ import Brand from "../components/Home/Brand/Brand";
 import Connect from "../components/Home/Connect/Connect";
 import FAQ from "../components/Home/FAQ/FAQ";
 import Features from "../components/Home/Features/Features";
-// import Learn from "../components/Home/Learn/Learn";
 import SocialMediaLinks from "../components/Home/SocialMediaLinks/SocialMediaLinks";
 import SupportedBlockchains from "../components/Home/SupportedBlockchains/SupportedBlockchains";
 import classes from "../styles/Home.module.css";
+import Donate from "../components/Home/Donate/Donate";
 
 export default function Home() {
   return (
@@ -27,7 +27,7 @@ export default function Home() {
       <Features />
       <Benefits />
       <Connect />
-      {/* <Learn /> */}
+      <Donate />
       <FAQ />
       <SocialMediaLinks />
     </div>

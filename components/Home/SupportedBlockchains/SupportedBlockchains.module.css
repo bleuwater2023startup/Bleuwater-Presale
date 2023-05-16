@@ -39,7 +39,7 @@
 }
 
 .blockchains {
-  animation: slide 20s linear infinite;
+  animation: slide 50s linear infinite;
 }
 
 @keyframes slide {
@@ -99,7 +99,7 @@
 
 @media screen and (max-width: 480px) {
   .blockchains {
-    animation: slide 10s linear infinite;
+    animation: slide 30s linear infinite;
   }
 
   .leftShadow,
