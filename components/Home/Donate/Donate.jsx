@@ -10,8 +10,6 @@ const Donate = () => {
 
   const copyRef = useRef(null);
 
-  const address = "123456789";
-
   const handleCopy = (props) => {
     const { navigator, copy } = props;
     copy.select();
@@ -97,7 +95,7 @@ const Donate = () => {
                 style={{ display: "none" }}
                 ref={copyRef}
                 type="text"
-                defaultValue={address}
+                defaultValue={network[activeNetwork].address}
               />
             </div>
           </div>
