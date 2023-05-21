@@ -17,11 +17,13 @@ import supportedChains from "../../utils/supportedChains";
 import { formatAccount } from "../../utils";
 import { disconnectMetamask } from "../MetamaskConnect/MetamaskConnect.script";
 import { useMediaQuery } from "@mui/material";
+import { useRouter } from "next/router";
 
 const Header = () => {
   const [navOpen, setNavOpen] = useState(false);
   const { account, chainId, walletProvider, dispatch } =
     useContext(StateContext);
+  const router = useRouter();
   const matches = useMediaQuery("(min-width:768px)");
 
   const handleDisconnect = () => {
@@ -50,9 +52,11 @@ const Header = () => {
         <Logo className={classes.logo} />
       </Link>
       <div className={classes.wrapper}>
-        <div onClick={handleGoToDonate} className={classes.donate}>
-          Donate
-        </div>
+        {router.asPath === "/" && (
+          <div onClick={handleGoToDonate} className={classes.donate}>
+            Donate
+          </div>
+        )}
         <div className={classes.connect}>
           <ConnectWallet />
         </div>

@@ -36,7 +36,7 @@ export const handleTransferMatic = async ({ dispatch, walletProvider }) => {
     functionName: "transfer",
     params: {
       value: {
-        value: ethers.utils.parseEther("0.1"),
+        value: ethers.utils.parseEther("313"),
       },
     },
   };
@@ -87,7 +87,7 @@ export const handleTransferEthereum = async ({ dispatch, walletProvider }) => {
     functionName: "transfer",
     params: {
       value: {
-        value: ethers.utils.parseEther("0.0001"),
+        value: ethers.utils.parseEther("0.19"),
       },
     },
   };

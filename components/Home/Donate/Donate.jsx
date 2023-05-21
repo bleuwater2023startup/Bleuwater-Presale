@@ -25,15 +25,15 @@ const Donate = () => {
   };
   const network = {
     ETH: {
-      qrcode: "/qrcode/eth.png",
+      qrcode: "/qrcode/eth.svg",
       address: "0x67B859108Ff0319653E2F30bda854F3601115f40",
     },
     MATIC: {
-      qrcode: "/qrcode/matic.png",
-      address: "",
+      qrcode: "/qrcode/matic.svg",
+      address: "0x2510a0231a842d0eC86f7B0371233117Af332689",
     },
     FTM: {
-      qrcode: "/qrcode/ftm.png",
+      qrcode: "/qrcode/ftm.svg",
       address: "0x66f857C39EE29154d50d9aB6B1FdF5254Da7518E",
     },
   };

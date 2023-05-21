@@ -281,6 +281,11 @@
   line-height: 24px;
   color: #000000;
   cursor: pointer;
+  transition: all 300ms;
+}
+
+.donate:hover {
+  color: var(--color-accent);
 }
 
 @media screen and (max-width: 1024px) {
