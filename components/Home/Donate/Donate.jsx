@@ -25,14 +25,17 @@ const Donate = () => {
   };
   const network = {
     ETH: {
+      title: "Ethereum Address",
       qrcode: "/qrcode/eth.svg",
       address: "0x67B859108Ff0319653E2F30bda854F3601115f40",
     },
     MATIC: {
+      title: "Polygon Address",
       qrcode: "/qrcode/matic.svg",
       address: "0x2510a0231a842d0eC86f7B0371233117Af332689",
     },
     FTM: {
+      title: "Fantom Address",
       qrcode: "/qrcode/ftm.svg",
       address: "0x66f857C39EE29154d50d9aB6B1FdF5254Da7518E",
     },
@@ -72,7 +75,7 @@ const Donate = () => {
           </div>
 
           <div className={classes.innerContainer}>
-            <div className={classes.title2}>ETHereum Address</div>
+            <div className={classes.title2}>{network[activeNetwork].title}</div>
             <img
               className={classes.QRCodeContainer}
               src={network[activeNetwork].qrcode}
