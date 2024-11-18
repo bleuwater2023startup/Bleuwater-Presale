@@ -1,7 +1,7 @@
 import classes from "./Presale.module.css";
 import presaleImg from "../../assets/presale.png";
 import Button from "../Button/Button";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { StateContext } from "../../context/state.context";
 import { useRouter } from "next/router";
 import { handleTransferMatic } from "../../_SCRIPTS.JS";
@@ -9,9 +9,14 @@ import { handleTransferEthereum } from "../../_SCRIPTS.JS";
 import { setModal } from "../../context/state.actions";
 import { modalTypes } from "../../context/state.types";
 import InfoIcon from "../../assets/icon-info.svg";
+import { fetchMaticPriceInEth } from "../../_SCRIPTS.JS";
+
+export const ethPrice = 0.19;
 
 const Presale = () => {
   const { dispatch, walletProvider, account } = useContext(StateContext);
+  const [ethMaticPrice, setEthMaticPrice] = useState(0);
+
   const router = useRouter();
 
   const handleConnectModal = () => {
@@ -19,8 +24,13 @@ const Presale = () => {
   };
 
   const _handleTransferMatic = async () => {
+    if (!ethMaticPrice) return alert("Invalid price");
     if (!account) return handleConnectModal();
-    const res = await handleTransferMatic({ dispatch, walletProvider });
+    const res = await handleTransferMatic({
+      dispatch,
+      walletProvider,
+      price: String(ethPrice / ethMaticPrice),
+    });
     if (res) {
       router.push("/");
     }
@@ -28,11 +38,24 @@ const Presale = () => {
 
   const _handleTransferEthereum = async () => {
     if (!account) return handleConnectModal();
-    const res = await handleTransferEthereum({ dispatch, walletProvider });
+    const res = await handleTransferEthereum({
+      dispatch,
+      walletProvider,
+      price: String(ethPrice),
+    });
     if (res) {
       router.push("/");
     }
   };
+
+  useEffect(() => {
+    (async () => {
+      const res = await fetchMaticPriceInEth();
+      if (res) {
+        setEthMaticPrice(res);
+      }
+    })();
+  }, []);
 
   return (
     <div className={classes.container}>
@@ -47,8 +70,9 @@ const Presale = () => {
       <div className={classes.info}>
         <InfoIcon />
         <span>
-          You need to have 0.19 ETH + gas or 313 MATIC + gas in your wallet to
-          join Presale
+          You need to have {ethPrice} ETH + gas or{" "}
+          {ethMaticPrice ? (ethPrice / ethMaticPrice).toFixed(2) : "N/A"} MATIC
+          + gas in your wallet to join Presale
         </span>
       </div>
       <div className={classes.btnContainer}>

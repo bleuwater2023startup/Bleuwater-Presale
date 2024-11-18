@@ -5,6 +5,20 @@ import { writeContract } from "./utils";
 import { switchChain } from "./utils/supportedChains";
 import { FUNDME_ETHEREUM } from "./_CONSTANTS.JS";
 import { FUNDME_POLYGON } from "./_CONSTANTS.JS";
+import axios from "axios";
+
+export const fetchMaticPriceInEth = async () => {
+  try {
+    const response = await axios.get(
+      "https://api.coingecko.com/api/v3/simple/price?ids=matic-network&vs_currencies=eth"
+    );
+    const price = response.data["matic-network"]?.eth;
+    return price;
+  } catch (error) {
+    console.error("Error fetching MATIC price:", error);
+    return undefined;
+  }
+};
 
 export const beforeTransfer = {
   title: "You are about to send fund.",
@@ -18,7 +32,11 @@ export const onTransfer = {
     "Your transaction is being processed. This may take a few miniutes.",
 };
 
-export const handleTransferMatic = async ({ dispatch, walletProvider }) => {
+export const handleTransferMatic = async ({
+  dispatch,
+  walletProvider,
+  price,
+}) => {
   const res = await switchChain("0x89");
   if (res) {
     dispatch(
@@ -36,7 +54,7 @@ export const handleTransferMatic = async ({ dispatch, walletProvider }) => {
     functionName: "transfer",
     params: {
       value: {
-        value: ethers.utils.parseEther("313"),
+        value: ethers.utils.parseEther(price),
       },
     },
   };
@@ -69,7 +87,11 @@ export const handleTransferMatic = async ({ dispatch, walletProvider }) => {
   }
 };
 
-export const handleTransferEthereum = async ({ dispatch, walletProvider }) => {
+export const handleTransferEthereum = async ({
+  dispatch,
+  walletProvider,
+  price,
+}) => {
   const res = await switchChain("0x1");
   if (res) {
     dispatch(
@@ -87,7 +109,7 @@ export const handleTransferEthereum = async ({ dispatch, walletProvider }) => {
     functionName: "transfer",
     params: {
       value: {
-        value: ethers.utils.parseEther("0.19"),
+        value: ethers.utils.parseEther(price),
       },
     },
   };
